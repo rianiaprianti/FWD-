@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 5 JS</title>
+</head>
+<body>
+    <h1>Cek Console untuk Hasilnya (F12)</h1>
+
+    <script>
+        // Paste kode JavaScript tadi di sini
+        let produkList = [
+            { id: 1, nama: "Laptop", harga: 12000000 },
+            { id: 2, nama: "Smartphone", harga: 5000000 },
+            { id: 3, nama: "Headset", harga: 500000 },
+            { id: 4, nama: "Mouse", harga: 300000 },
+            { id: 5, nama: "Keyboard", harga: 800000 }
+        ];
+
+        function tambahProduk(id, nama, harga) {
+            const produkBaru = { id, nama, harga };
+            produkList = [...produkList, produkBaru];
+        }
+
+        function hapusProduk(id) {
+            produkList = produkList.filter(produk => produk.id !== id);
+        }
+
+        function tampilkanProduk() {
+            console.log("--- Daftar Produk ---");
+            produkList.forEach(({ nama, harga }) => {
+                console.log(`Produk: ${nama} | Harga: Rp${harga}`);
+            });
+        }
+
+        tampilkanProduk();
+        tambahProduk(6, "Tablet", 7000000);
+        console.log("Setelah Ditambah:");
+        tampilkanProduk();
+        hapusProduk(2);
+        console.log("Setelah Dihapus (ID 2):");
+        tampilkanProduk();
+    </script>
+</body>
+</html>
